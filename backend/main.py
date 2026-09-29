@@ -62,7 +62,7 @@ async def analyze_photo(file: UploadFile = File(...), language_code: str = Form(
 
 
 @app.post("/report-issue")
-@limiter.limit("5/minute")
+@limiter.limit("10/minute")
 async def report_issue(
     request: Request,
     file: UploadFile = File(...),
@@ -116,7 +116,7 @@ async def report_issue(
 
 
 @app.post("/generate-weekly-summary")
-@limiter.limit("20/hour")
+@limiter.limit("5/hour")
 def trigger_weekly_summary(request: Request, lang: str = "en", admin=Depends(verify_jwt_token)):
     summary = generate_weekly_summary()
     if summary is None:
