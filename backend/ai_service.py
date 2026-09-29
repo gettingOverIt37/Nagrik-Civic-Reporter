@@ -68,7 +68,7 @@ LANGUAGE_NAMES = {
     "ur": "Urdu",
 }
 
-def generate_weekly_summary():
+def generate_weekly_summary(lang="en"):
     connection = get_db_connection()
     week_end = datetime.now()
     week_start = week_end - timedelta(days=7)
