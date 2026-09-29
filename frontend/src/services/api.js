@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 // Photo upload karke AI se analysis lo
 // languageCode: i18n.language — AI usi bhasha mein description + confirmation dega
