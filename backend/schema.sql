@@ -86,6 +86,30 @@ CREATE TABLE status_history (
 ) ENGINE=InnoDB;
 
 -- ------------------------------------------------------------
+-- Table: admins
+-- Multi-admin support
+-- ------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- ------------------------------------------------------------
+-- Table: admin_invites
+-- Invite codes for new admin onboarding
+-- ------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS admin_invites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(100) NOT NULL UNIQUE,
+    created_by VARCHAR(50) NOT NULL,
+    expires_at DATETIME NOT NULL,
+    is_used BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- ------------------------------------------------------------
 -- Verify
 -- ------------------------------------------------------------
 SHOW TABLES;

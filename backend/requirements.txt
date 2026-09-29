@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+mysql-connector-python
+python-dotenv
+google-genai
+pandas
+pyjwt
+bcrypt
+python-multipart
+certifi
+slowapi
