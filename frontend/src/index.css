@@ -1,0 +1,134 @@
+:root {
+  /* ── Nagrik Brand — "City Pulse" ──
+     Raw palette. Used directly for gradients/badges where a semantic
+     alias below doesn't fit. */
+  --indigo: #24225C;
+  --indigo-2: #453C9E;
+  --marigold: #FF8A3D;
+  --coral: #FF5D73;
+  --teal: #2BA9A0;
+  --blue: #3E7BFA;
+  --amber: #C9822E;
+  --slate: #6B6B8A;
+  --stamp: #C81E3A;
+
+  --cream: #FFF8EE;
+  --ink: #1D1B3A;
+  --ink-soft: #5B5876;
+  --line: #E9E1D2;
+
+  /* ── Semantic aliases ──
+     Same variable NAMES as before — anything already coded against
+     these (e.g. the admin dashboard) picks up the new palette
+     automatically, without needing to change. */
+  --accent: var(--indigo-2);
+  --accent-bg: rgba(69, 60, 158, 0.08);
+  --accent-border: rgba(69, 60, 158, 0.35);
+
+  --success: var(--teal);
+  --success-bg: rgba(43, 169, 160, 0.10);
+
+  --danger: var(--coral);
+  --danger-bg: rgba(255, 93, 115, 0.10);
+
+  --warning: var(--amber);
+
+  --text: var(--ink-soft);
+  --text-h: var(--ink);
+  --bg: var(--cream);
+  --bg-subtle: #FDF3E4;
+  --border: var(--line);
+  --shadow: rgba(29,27,58,0.10) 0 8px 20px, rgba(29,27,58,0.06) 0 2px 6px;
+
+  --code-bg: #F3EEE0;
+  --social-bg: rgba(244, 243, 236, 0.5);
+
+  /* Typography — unchanged, this choice was already correct */
+  --sans: 'Source Sans 3', system-ui, sans-serif;
+  --heading: 'Public Sans', system-ui, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/150% var(--sans);
+  letter-spacing: 0.1px;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Manual dark theme ──
+   Not tied to system preference (prefers-color-scheme). Toggled only by
+   the sun/moon button (ThemeToggle.jsx), which sets data-theme on <html>
+   and remembers the choice in localStorage. Default is light. */
+:root[data-theme="dark"] {
+  --cream: #14132B;
+  --ink: #F3EFE4;
+  --ink-soft: #B9B6D6;
+  --line: #34315C;
+
+  --bg-subtle: #1C1B3D;
+  --code-bg: #232152;
+
+  /* Slightly lightened so it stays legible as text/icon color on dark
+     surfaces — this one variable cascades through every var(--indigo-2)
+     reference in the components, so nothing else needs to change. */
+  --indigo-2: #8478E8;
+
+  --success-bg: rgba(43, 169, 160, 0.16);
+  --danger-bg: rgba(255, 93, 115, 0.16);
+  --accent-bg: rgba(132, 120, 232, 0.14);
+  --accent-border: rgba(132, 120, 232, 0.4);
+
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+}
+@media (max-width: 1024px) {
+  h1 { font-size: 36px; margin: 20px 0; }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+}
+@media (max-width: 1024px) {
+  h2 { font-size: 20px; }
+}
+
+p { margin: 0; }
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
