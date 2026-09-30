@@ -39,25 +39,25 @@ cd Nagrik-Civic-Reporter
 ```
 
 --> 2. Backend Setup :-
-    cd backend
-    python -m venv .venv
-    source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+    cd backend,
+    python -m venv .venv,
+    source .venv/bin/activate,  # On Windows use: .venv\Scripts\activate
     pip install -r requirements.txt
     
   Create a .env file inside the backend folder:
-    DB_HOST=your_tidb_host
-    DB_USER=your_tidb_user
-    DB_PASSWORD=your_tidb_password
-    DB_NAME=your_tidb_database
-    DB_PORT=4000
-    GEMINI_API_KEY=your_gemini_api_key
-    JWT_SECRET=your_jwt_secret
+    DB_HOST=your_tidb_host,
+    DB_USER=your_tidb_user,
+    DB_PASSWORD=your_tidb_password,
+    DB_NAME=your_tidb_database,
+    DB_PORT=4000,
+    GEMINI_API_KEY=your_gemini_api_key,
+    JWT_SECRET=your_jwt_secret,
     
   Run the backend server:
-    uvicorn main:app --reload --port 8000
+    uvicorn main:app --reload --port 8000,
 
 --> 3. Frontend Setup :-
-    cd frontend
+    cd frontend,
     npm install
 
   Create a .env file inside the frontend folder:
